@@ -1,0 +1,56 @@
+.divPage{
+    background-image: url("../../img/dogs_background.jpg");
+    margin: 0;
+    padding: 0;
+    /* background-attachment: scroll; */
+    background-size: cover;
+    background-position: center center;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+    min-width: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center; */
+    
+    
+    
+    
+}
+/* .divContainer{
+    
+        
+        
+} */
+.divTitle{
+    display: inline;
+    
+}
+
+.title{
+
+    
+   color: bisque;
+   font-size: 80px;
+   
+}
+
+.divButton{
+    
+    padding: 1em 3em 1em 3em;
+    border-radius: 100%;
+    margin-bottom: 10%;
+    background-color: antiquewhite;
+}
+.button{
+    /* font-family: 'Belanosima'; no puedo ponerle la letra al p */
+    font-size: 45px;    
+}
+
+.login{
+    height: 4em;
+}

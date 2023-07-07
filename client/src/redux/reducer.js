@@ -18,7 +18,10 @@ const reducer = (state = initialState, action) => {
         dogs: action.payload,
       };
     case GET_DOG_BY_ID:
-      return { ...state, detail: action.payload };
+      return {
+        ...state,
+        detail: action.payload,
+      };
     case GET_DOG_BY_NAME:
       return {
         ...state,

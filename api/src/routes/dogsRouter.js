@@ -8,9 +8,9 @@ const {
 
 const dogsRouter = Router();
 
-dogsRouter.use("/", getAllDogsHandler);
+dogsRouter.use("/name", getByNameHandler);
 dogsRouter.use("/:id", getByIdHandler);
-dogsRouter.use("/name?=name", getByNameHandler);
+dogsRouter.use("/", getAllDogsHandler);
 dogsRouter.use("/createDog", postDogHandler);
 
 module.exports = dogsRouter;

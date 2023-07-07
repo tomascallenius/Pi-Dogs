@@ -3,7 +3,7 @@ const {
   getById,
   getByName,
   postDog,
-} = require("../controllers/dogsControllers");
+} = require("../controllers/dogControllers");
 
 const getAllDogsHandler = async (req, res) => {
   try {
@@ -19,7 +19,7 @@ const getByIdHandler = async (req, res) => {
   let source = isNaN(id) ? "db" : "api";
 
   try {
-    let dogById = await getById(source);
+    let dogById = await getById(source, id);
     res.status(200).json(dogById);
   } catch (error) {
     res.status(400).json({ message: "No se encontró un perro con ese id" });
@@ -37,14 +37,16 @@ const getByNameHandler = async (req, res) => {
 };
 
 const postDogHandler = async (req, res) => {
-  const { name, minHeight, maxHeight, minWeigth, maxWeigth } = req.body;
+  const { name, minHeight, maxHeight, minWeigth, maxWeigth, life_span } =
+    req.body;
   try {
     let dogCreated = await postDog(
       name,
       minHeight,
       maxHeight,
       minWeigth,
-      maxWeigth
+      maxWeigth,
+      life_span
     );
     res.status(200).json(dogCreated);
   } catch (error) {
