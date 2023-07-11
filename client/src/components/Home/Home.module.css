@@ -1,0 +1,7 @@
+.divAll{
+    background-image: url("../../img/dogs_pattern.jpg");
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}

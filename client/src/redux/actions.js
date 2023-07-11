@@ -18,6 +18,7 @@ export const getAllDogs = () => {
 };
 
 export const getDogById = (id) => {
+  console.log(id);
   return async (dispatch) => {
     try {
       const response = await axios.get(`http://localhost:3001/dogs/${id}`);
@@ -42,6 +43,7 @@ export const getDogByName = (name) => {
 };
 
 export const postDog = (form) => {
+  console.log(form);
   return async function (dispatch) {
     try {
       const response = await axios.post(

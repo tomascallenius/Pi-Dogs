@@ -12,45 +12,61 @@
     flex-direction: column;
     justify-content: space-between;
     align-items:center;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: center; */
-    
-    
-    
-    
 }
-/* .divContainer{
-    
-        
-        
-} */
+
 .divTitle{
     display: inline;
-    
 }
 
 .title{
-
-    
-   color: bisque;
-   font-size: 80px;
-   
+    color: bisque;
+    font-size: 100px;
+    text-shadow: 0px 7px 5px rgba(143, 140, 115, 0.639);
 }
 
 .divButton{
-    
-    padding: 1em 3em 1em 3em;
-    border-radius: 100%;
-    margin-bottom: 10%;
+    border-bottom: 10px solid #c7b198;
+    box-shadow: 0px 10px 10px -4px rgba(143, 140, 115, 0.639);
+    padding: 0px 30px 0px 30px;
+    border-radius: 60px;
     background-color: antiquewhite;
-}
-.button{
-    /* font-family: 'Belanosima'; no puedo ponerle la letra al p */
-    font-size: 45px;    
+    transition: transform 0.4s;
 }
 
-.login{
-    height: 4em;
+.button{
+    font-size: 45px;     
 }
+
+.divButton:hover{
+    transform: translateY(-15px)
+}
+
+.divButton:active{
+    border: none;
+    box-shadow: 0px 10px 10px -4px rgba(143, 140, 115, 0.639);
+    padding: 0px 30px 0px 30px;
+    border-radius: 60px;
+    background-color: antiquewhite;
+}
+
+.imgBanner{
+    filter: drop-shadow(5px 5px 26px #c7b198);
+    /* animation: movimiento 3.5s linear infinite;  */
+}
+
+/* @keyframes movimiento{
+ 
+} */
+
+.navLink{
+    text-decoration: none;
+    color: #496675;
+}
+
+
+
+
+
+
+
+

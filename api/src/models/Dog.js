@@ -6,10 +6,14 @@ module.exports = (sequelize) => {
     "Dog",
     {
       id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
+        unique: true,
+        // type: DataTypes.UUID,
+        // defaultValue: DataTypes.UUIDV4,
+        // primaryKey: true,
+        // allowNull: false,
       },
       image: {
         type: DataTypes.STRING,
@@ -36,14 +40,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      lifeSpanMin: {
+      life_Span: {
         type: DataTypes.STRING,
         allowNull: false,
       }, // verificar que sean dos life pq me parece que es uno solo segun el form.
-      lifeSpanMax: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+
       createdInDb: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

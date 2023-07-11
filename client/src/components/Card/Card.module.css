@@ -1,0 +1,44 @@
+.divAll{
+    color: #496675;
+    flex-direction: column;
+    margin: 5% 0% 0% 0%;
+    border-radius: 20px;
+    background-color: #ebe0d1;
+    width: 22%;
+    justify-content: center;
+}
+
+.name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.img {
+    /* justify-content: center; */
+    border: 2px solid #c7b198;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: .5em;
+}
+
+.moreInfoButton {
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-style: none;
+    width: 100%;
+    height: 34px;
+    font-size: 25px;
+    background-color: transparent;
+    border-radius: 0px 0px 20px 20px;
+    border-bottom: 4px solid #c7b198;
+    box-shadow: 0px 10px 10px -4px rgba(143, 140, 115, 0.639);
+}
+
+.navLink {
+    text-decoration: none;
+    color: #496675;
+}

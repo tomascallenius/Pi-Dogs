@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Card from "../Card/Card";
 import { getAllDogs } from "../../redux/actions";
+import style from "./Home.module.css";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -12,16 +13,17 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      {dogs?.map(({ id, name, reference_image_id, temperament, weight }) => {
+    <div className={style.divAll}>
+      {dogs?.map(({ id, name, image, temperament, weightMin, weightMax }) => {
         return (
           <Card
             key={id}
             id={id}
             name={name}
-            image={reference_image_id}
+            image={image}
             temperament={temperament}
-            weight={weight}
+            weightMin={weightMin}
+            weightMax={weightMax}
           />
         );
       })}
