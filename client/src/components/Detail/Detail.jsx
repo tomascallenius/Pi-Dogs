@@ -13,37 +13,39 @@ const Detail = () => {
     console.log(id);
     dispatch(getDogById(id));
   }, [id, dispatch]);
-
+  console.log(detail);
   return (
     <div>
       {detail[0] ? (
         <div className={style.divAll}>
           <div>
-            <h1>{detail[0].name}</h1>
+            <h1 className={style.title}>{detail[0].name}</h1>
             <hr />
-            <img
-              src={detail[0].image}
-              alt={detail[0].name}
-              className={style.img}
-            />
-            <hr />
-            <p>{detail[0].temperament}</p>
           </div>
-          <br />
-          <div>
-            <h3>Heigth</h3>
-            <ul>
-              Metric: {detail[0].heightMin}-{detail[0].heightMax} cm
-            </ul>
+          <div className={style.divBody}>
+            <div>
+              <h3 className={style.subTitle}>Heigth</h3>
+              <ul>
+              Metric: {detail[0].heightMin}-{detail[0].heightMax} cm.
+              </ul>
+              {/* <hr /> */}
+              <h3 className={style.subTitle}>Weigth</h3>
+              <ul>
+              Metric: {detail[0].weightMin}-{detail[0].weightMax} kg.
+              </ul>
+              {/* <hr /> */}
+              <h3 className={style.subTitle}>Life span</h3>
+              <p>{detail[0].life_Span}.</p>
+            </div>
+            <div>
+              <img
+                src={detail[0].image}
+                alt={detail[0].name}
+                className={style.img}
+              />
+              <p>{detail[0].temperament}.</p>
+            </div>
           </div>
-          <div>
-            <h3>Weigth</h3>
-            <ul>
-              Metric: {detail[0].weightMin}-{detail[0].weightMax} kg
-            </ul>
-          </div>
-          <h3>Life span:</h3>
-          <p>{detail[0].life_span}</p>
         </div>
       ) : (
         <div></div>

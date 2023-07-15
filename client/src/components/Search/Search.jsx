@@ -26,8 +26,9 @@ const Search = () => {
   return (
     <div className={style.containerSearch}>
       <input
-        type="text"
-        placeholder="Search"
+        autoComplete="true"
+        type="search"
+        placeholder="  Search by name"
         value={input}
         onChange={handleInput}
         className={style.searchInPut}

@@ -1,7 +1,17 @@
 .divAll{
-    background-image: url("../../img/dogs_pattern.jpg");
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    
+  background-image: url("../../img/dogs_pattern.jpg");
+  flex-direction: column;
 }
+
+.divCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+  /* @media screen and (min-width: 900px) {
+    .divAll{
+       
+           
+    }
+ } */
+

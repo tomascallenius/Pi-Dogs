@@ -43,8 +43,7 @@ module.exports = (sequelize) => {
       life_Span: {
         type: DataTypes.STRING,
         allowNull: false,
-      }, // verificar que sean dos life pq me parece que es uno solo segun el form.
-
+      },
       createdInDb: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

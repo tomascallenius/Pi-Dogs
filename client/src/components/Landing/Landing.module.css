@@ -2,7 +2,6 @@
     background-image: url("../../img/dogs_background.jpg");
     margin: 0;
     padding: 0;
-    /* background-attachment: scroll; */
     background-size: cover;
     background-position: center center;
     background-repeat:no-repeat;
@@ -12,6 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items:center;
+    /* background-attachment: scroll; */ 
 }
 
 .divTitle{

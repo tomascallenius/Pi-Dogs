@@ -1,6 +1,6 @@
 const axios = require("axios");
 // require("dotenv").config();
-const { API_KEY } = process.env;
+// const { API_KEY } = process.env;
 const { Dog, Temperament } = require("../db");
 
 const createDogObjDB = (res) => {
@@ -112,19 +112,19 @@ const getById = async (id) => {
 
 const postDog = async ({
   name,
-  minHeight,
-  maxHeight,
-  minWeigth,
-  maxWeigth,
+  heightMin,
+  heightMax,
+  weightMin,
+  weightMax,
   life_span,
   temperaments,
 }) => {
   const dogCreated = await Dogs.create({
     name,
-    minHeight,
-    maxHeight,
-    minWeigth,
-    maxWeigth,
+    heightMin,
+    heightMax,
+    weightMin,
+    weightMax,
     life_span,
   });
   for (let i = 0; i < temperaments.length; i++) {
@@ -133,7 +133,7 @@ const postDog = async ({
         id: temperaments[i],
       },
     }); //seguir con el post
-    return temp;
+    return ;
   }
 };
 

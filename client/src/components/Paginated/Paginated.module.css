@@ -1,0 +1,13 @@
+.divAll{
+      display: flex;
+      justify-content: center;
+}
+.buttonsPaginated{
+      margin-bottom: 1%;
+      background-color: transparent;
+      border-style: none;
+}
+.img{
+      /* min-width: 40px; */
+      max-width: 40px;
+}

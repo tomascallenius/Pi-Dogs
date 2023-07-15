@@ -1,0 +1,28 @@
+.divFooter{
+      height: 80px;
+      padding: 0;
+      margin: 0;
+      background-color:#496675;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #dfd3c3;
+      color: #496675;
+      border-bottom: 10px solid rgb(199, 177, 152);
+}
+
+.me{
+      padding: 10px;
+      background-color: rgb(199, 177, 152);
+      border-radius: 20px;
+}
+
+.divInfo{
+      display: flex;
+      align-items: center;
+}
+
+.icons{
+      padding: 5px;
+      max-width: 50px;
+}

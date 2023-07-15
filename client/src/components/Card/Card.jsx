@@ -7,12 +7,13 @@ const Card = ({ id, name, image, temperament, weightMin, weightMax }) => {
       <div>
         <h1 className={style.name}>{name}</h1>
         <hr />
+      </div>
+      <div className={style.divImg}>
         <img src={image} alt={name} className={style.img} />
         <hr />
-        <p>{temperament}</p>
       </div>
-      <br />
       <div>
+        <p>{temperament}</p>
         <h3>Weigth</h3>
         <p>
           {weightMin}-{weightMax} kg

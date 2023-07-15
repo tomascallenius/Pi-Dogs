@@ -1,13 +1,64 @@
 .divAll{
-    align-content: space-between;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10% 10% 10% 8%;
-    padding: 2em;
+    width: 80%;
+    /* background-image: url("../../img/dogs_pattern.jpg"); */
+    display: flex;
+    flex-direction: column;
+    margin: 10% 10% 10% 10%;
+    /* padding: 2em; */
+    background-color: #d5c1b1;
     border-radius: 1em;
+    color: #496675;
+    text-align: center;
+    transition: 1s;
+}
+.divAll:hover{
+    box-shadow: 0px 25px 49px 10px rgba(143, 140, 115, 0.75);
+        -webkit-box-shadow: 0px 25px 49px 10px rgba(143, 140, 115, 0.75);
+        -moz-box-shadow: 0px 25px 49px 10px rgba(143, 140, 115, 0.75);
+}
+.title{
+    font-size: 4em;
+}
+.subTitle{
+    font-size: 1.5em;
+}
+
+.divBody{
+    padding-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color:#c7b198;
+    border: 4px solid hwb(7 31% 0%);
+    border-radius: 0 0 1em 1em;
 }
 
 .img {
-    border-radius: 12px 80px 11px 8px;
-    border: 2px solid #542c0d;
+    max-width: 600px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1100px) {
+    .title {
+            font-size: 3em;
+        }
+    .img {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 800px) {
+    .img {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .divBody{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .img {
+        width: 320px;
+    }
 }
