@@ -39,7 +39,7 @@ const createDogObjDB = (res) => {
 const getAllDogsAPI = async () => {
   try {
     const allDogsAPI = (
-      await axios.get(`https://api.thedogapi.com/v1/breeds/?limit=100`)
+      await axios.get(`https://api.thedogapi.com/v1/breeds/?limit=104`)
     ).data;
     const dogsAPI = await allDogsAPI.map((dog) => {
       return {
