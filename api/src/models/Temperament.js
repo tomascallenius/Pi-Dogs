@@ -5,10 +5,11 @@ module.exports = (sequelize) => {
     "Temperament",
     {
       id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
         allowNull: false,
+        unique: true,
       },
       name: {
         type: DataTypes.STRING,

@@ -29,8 +29,13 @@
     border-bottom: 4px solid #c7b198;
     border-radius: 20px 20px 20px 20px;
     box-shadow: 0px 10px 10px -4px rgba(143, 140, 115, 0.639);
-    transition: .5s ;
+    transition: .3s ;
 }
 .buttonSearch:hover {
     border-bottom: 4px solid rgb(255, 101, 80);
+    transform: scale(1.1);
+}
+.buttonSearch:active {
+    border-bottom: 4px solid rgb(255, 101, 80);
+    transform: none;
 }

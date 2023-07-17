@@ -10,12 +10,13 @@ const Home = () => {
   const { dogs } = useSelector((state) => state);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(8);
+
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
-  
-  const currentDogs = dogs.slice(indexOfFirstPost, indexOfLastPost);
 
+  const currentDogs = dogs.slice(indexOfFirstPost, indexOfLastPost);
   const currentPageSet = (pageNumber) => setCurrentPage(pageNumber);
+  
   const totalPosts = dogs.length;
   
   useEffect(() => {

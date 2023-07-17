@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postDog } from "../../redux/actions";
+import { postDog, getTemperaments } from "../../redux/actions";
 import image from "../../img/perros-para-el-create-removebg-preview.png";
 import style from "./Create.module.css";
 const Create = () => {
   const dispatch = useDispatch();
-  const dogs = useSelector((state)=>state.dogs)
-  console.log(dogs);
+  const tempsFromState = useSelector((state) => state.temperaments);
+  
   const [form, setForm] = useState({
     name: "",
     heightMin: "",
@@ -17,6 +17,15 @@ const Create = () => {
     temperaments: [],
   });
 
+  // const [temperaments, setTemperaments] = useState([]);
+  
+  useEffect(() => {
+    // setTemperaments(tempsFromState);
+    dispatch(getTemperaments());
+  }, [dispatch]);
+  
+  // console.log(temperaments);
+
   const handleForm = (event) => {
     const property = event.target.name;
     const value = event.target.value;
@@ -24,10 +33,23 @@ const Create = () => {
       ...form,
       [property]: value,
     });
-    console.log(form);
   };
+  
+  const handleTemperament = (event) => {
+    let nextTemp = event.target.value;
+    if (form.temperaments.length < 4) {
+      if (!form.temperaments.includes(nextTemp)) {
+        setForm({
+          ...form,
+          temperaments: [...form.temperaments, event.target.value],
+        });
+      }
+    }else{alert("hijoputa")}
+    };
+    
+  console.log(form);
+  
   const handleClick = (event) => {
-    console.log(form);
     event.preventDefault();
     dispatch(postDog(form));
   };
@@ -134,15 +156,22 @@ const Create = () => {
                 id="temperaments"
                 name="temperaments"
                 value={form.temperaments}
-                // onChange={}
+                onChange={handleTemperament}
               >
-                <option value="1" hidden>You can choose only one</option>
-                {dogs?.map((dog) => (
-                  <option value={dog.tempepament} key={dog.id}>
-                    {dog.temperament}
+                <option>Select up to four</option>
+                {tempsFromState?.map((temp) => (
+                  <option value={temp.name} key={temp.id}>
+                    {temp.name}
                   </option>
                 ))}
               </select>
+              <div className={style.currentTemps}>
+                {form.temperaments?.map((temp) => (
+                  <>
+                    <button className={style.currentTempsButton}>{temp}</button>
+                  </>
+                ))}
+              </div>
             </div>
             <div>
               <button

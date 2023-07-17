@@ -38,20 +38,22 @@ const getByIdHandler = async (req, res) => {
 // };
 
 const postDogHandler = async (req, res) => {
-  const { name, heightMin, heightMax, weightMin, weightMax, life_span } =
+  const { name, heightMin, heightMax, weightMin, weightMax, life_span, temperaments } =
     req.body;
-  console.log(req.body.minHeight);
+  console.log(req.body);
   try {
     let dogCreated = await postDog(
-      name,
+      {name,
       heightMin,
       heightMax,
       weightMin,
       weightMax,
-      life_span
-    );
-    res.status(200).json(dogCreated);
+      life_span,
+      temperaments,
+  });
+    res.status(200).json("The dog has been created");
   } catch (error) {
+    console.log(error.message);
     res.status(400).json({ message: "No se pudo crear el perro" });
   }
 };
@@ -61,16 +63,3 @@ module.exports = {
   getByIdHandler,
   postDogHandler,
 };
-
-//const getByNameHandler = async (req, res) => {
-//   const name = req.query.name;
-//   let allDogs = await getAllDogs();
-//   if(name)
-//   {
-//    const filterdogs = ?.filter((dog) =>
-//    dog.name.toLowerCase().includes(nameQ.toLowerCase())
-//     res.status(200).json(dogByName);
-//   } catch (error) {
-//     res.status(400).json({ message: "No se encontró un perro con ese nombre" });
-//   }
-// };

@@ -8,16 +8,18 @@
     background-color: #ebe0d1;
     width: 22%;
     text-align: center;
-    transition: .5s;
-
+    transition: .3s;
 }
 
 .divAll:hover{
-    box-shadow: 0px 16px 32px 10px rgba(199, 177, 152, 1);
-    -webkit-box-shadow: 0px 16px 32px 10px rgba(199, 177, 152, 1);
-    -moz-box-shadow: 0px 16px 32px 10px rgba(199, 177, 152, 1);
+    transform: translatey(-14px);
+    box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.75);    
 }
-
+.divAll:active {
+    transform: none;
+    box-shadow: none;
+}
+    
 .name {
     font-size: 25px;
     font-weight: bold;
@@ -41,8 +43,7 @@
     background-color: transparent;
     border-radius: 0px 0px 20px 20px;
     border-bottom: 4px solid #c7b198;
-    box-shadow: 0px 10px 10px -4px rgba(143, 140, 115, 0.639);
-    transition: .5s;
+    transition: .3s;
 }
 
 .moreInfoButton:hover{
@@ -54,11 +55,6 @@
     color: #496675;
 }
 
-/* @media screen and (max-width: 900px) {
-     .divAll {
-        width: 30%;
-     }
-} */
 @media screen and (min-width: 801px) and (max-width: 1100px) {
     .divAll {
         width: 30%;

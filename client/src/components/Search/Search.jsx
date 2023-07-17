@@ -8,14 +8,15 @@ const Search = () => {
   const dispatch = useDispatch();
 
   const handleInput = (event) => {
-    if (event.target.value === "") {
-      dispatch(getAllDogs());
-    } else {
+    // if (event.target.value === "") {
+    //   dispatch(getAllDogs());
+    // } else {
       setInput(event.target.value);
-    }
+    // }
   };
   const handleClick = (event) => {
     let { value } = event.target;
+    console.log(value);
     if (value) {
       dispatch(getDogByName(value));
       setInput("");

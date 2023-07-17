@@ -12,8 +12,7 @@ const Paginated = ({
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log(currentPage);
-  console.log(pageNumbers);
+ 
   return (
     <div className={style.divAll}>
       <button

@@ -99,16 +99,6 @@ const getById = async (id) => {
   return dogsById;
 };
 
-// const getByName = async (nameQ) => {
-//   let dogsAPI = (
-//     await axios.get("https://api.thedogapi.com/v1/breeds/?limit=100")
-//   ).data;
-
-//   const filterdogs = dogsAPI?.filter((dog) =>
-//     dog.name.toLowerCase().includes(nameQ.toLowerCase())
-//   );
-//   return filterdogs;
-// };-
 
 const postDog = async ({
   name,
@@ -119,7 +109,8 @@ const postDog = async ({
   life_span,
   temperaments,
 }) => {
-  const dogCreated = await Dogs.create({
+  console.log(name);
+  const dogCreated = await Dog.create({
     name,
     heightMin,
     heightMax,
@@ -128,12 +119,13 @@ const postDog = async ({
     life_span,
   });
   for (let i = 0; i < temperaments.length; i++) {
+    console.log(temperaments[i])
     const temp = await Temperament.findAll({
       where: {
-        id: temperaments[i],
+        name: temperaments[i],
       },
-    }); //seguir con el post
-    return ;
+    });
+    dogCreated.addTemperament(temp);
   }
 };
 

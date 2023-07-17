@@ -8,12 +8,10 @@ const Detail = () => {
   const detail = useSelector((state) => state.detail);
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(detail);
   useEffect(() => {
-    console.log(id);
     dispatch(getDogById(id));
+    // return()=> dispatch(cleanDetail());
   }, [id, dispatch]);
-  console.log(detail);
   return (
     <div>
       {detail[0] ? (
@@ -26,12 +24,12 @@ const Detail = () => {
             <div>
               <h3 className={style.subTitle}>Heigth</h3>
               <ul>
-              Metric: {detail[0].heightMin}-{detail[0].heightMax} cm.
+                Metric: {detail[0].heightMin}-{detail[0].heightMax} cm.
               </ul>
               {/* <hr /> */}
               <h3 className={style.subTitle}>Weigth</h3>
               <ul>
-              Metric: {detail[0].weightMin}-{detail[0].weightMax} kg.
+                Metric: {detail[0].weightMin}-{detail[0].weightMax} kg.
               </ul>
               {/* <hr /> */}
               <h3 className={style.subTitle}>Life span</h3>

@@ -3,6 +3,8 @@ import {
   GET_DOG_BY_ID,
   GET_DOG_BY_NAME,
   POST_DOG,
+  GET_TEMPERAMENTS,
+  // CLEAN_DETAIL,
 } from "./actions-types";
 import axios from "axios";
 
@@ -18,7 +20,6 @@ export const getAllDogs = () => {
 };
 
 export const getDogById = (id) => {
-  console.log(id);
   return async (dispatch) => {
     try {
       const response = await axios.get(`http://localhost:3001/dogs/${id}`);
@@ -56,3 +57,22 @@ export const postDog = (form) => {
     }
   };
 };
+
+export const getTemperaments = () => async (dispatch) => {
+  try {
+    await axios.get("http://localhost:3001/temperaments").then((response) => {
+      dispatch({
+        type: GET_TEMPERAMENTS,
+        payload: response.data,
+      });
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
+// export const cleanDetail = () => {
+
+//   return{ type: CLEAN_DETAIL, payload: [] };
+   
+// }

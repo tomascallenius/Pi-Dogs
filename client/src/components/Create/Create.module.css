@@ -59,7 +59,16 @@
 .buttonCreate:hover{
     border-bottom: 4px solid rgb(255, 101, 80);
 }
-
+/* .currentTemps{
+   
+} */
+.currentTempsButton{
+    background-color: antiquewhite;
+    border: none;
+}
+.currentTempsButton:hover {
+  cursor: pointer;
+}
 @media screen and (min-width: 801px) and (max-width: 1100px) {
     .divContainer{
         display: flex;

@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
         allowNull: false,
         unique: true,
@@ -17,7 +18,7 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       name: {
         type: DataTypes.STRING,
@@ -40,15 +41,15 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      life_Span: {
-        type: DataTypes.STRING,
+      life_span: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
-      createdInDb: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-      },
+      // createdInDb: {
+      //   type: DataTypes.BOOLEAN,
+      //   allowNull: false,
+      //   defaultValue: true,
+      // },
     },
     { timestamps: false }
   );

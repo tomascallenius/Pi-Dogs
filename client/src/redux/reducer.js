@@ -2,12 +2,15 @@ import {
   GET_ALL_DOGS,
   GET_DOG_BY_ID,
   GET_DOG_BY_NAME,
+  GET_TEMPERAMENTS,
   POST_DOG,
+  // CLEAN_DETAIL,
 } from "./actions-types";
 
 const initialState = {
   dogs: [],
-  detail: {},
+  detail: [],
+  temperaments: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -33,10 +36,21 @@ const reducer = (state = initialState, action) => {
         dogs: action.payload,
         //falta: falta?,
       };
+    case GET_TEMPERAMENTS:
+      return {
+        ...state,
+        temperaments: action.payload,
+      }
+    // case CLEAN_DETAIL:
+    //   return {
+    //     ...state,
+    //     detail: action.payload,
+    //   }
     default:
       return {
         ...state,
       };
+    
   }
 };
 export default reducer;

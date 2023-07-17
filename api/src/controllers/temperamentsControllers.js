@@ -10,13 +10,13 @@ const getAllTemperaments = async () => {
   const arrTempsAPI = alldogsAPI
     .map((dog) => dog.temperament)
     .join(", ")
-    .split("");
+    .split(", ");
   arrTempsAPI.forEach((temp) => {
     if (!allTemperaments.includes(temp)) allTemperaments.push(temp);
   });
   
   allTemperaments.sort();
-
+  // return allTemperaments;
   await Promise.all(
     allTemperaments.map((temperament) => {
       Temperament.findOrCreate({
@@ -30,15 +30,6 @@ const getAllTemperaments = async () => {
 
   return allTemperamentsDb;
 
-  //    await Temperament.Create(
-  //     dietsDB.map((diet) => {
-  //       //para agregar las dietas a la DB
-  //       return {
-  //         name: diet,
-  //       };
-  //     }),
-  //     { ignoreDuplicates: true }
-  //   );
 };
 
 module.exports = { getAllTemperaments };
