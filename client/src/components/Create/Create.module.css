@@ -59,16 +59,26 @@
 .buttonCreate:hover{
     border-bottom: 4px solid rgb(255, 101, 80);
 }
+.buttonCreate:active {
+    border-bottom: none;
+}
 /* .currentTemps{
    
 } */
 .currentTempsButton{
+    margin-top: 5%;
     background-color: antiquewhite;
     border: none;
+    border-radius: 10px;
 }
 .currentTempsButton:hover {
   cursor: pointer;
 }
+.pEliminate{
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+}
+
 @media screen and (min-width: 801px) and (max-width: 1100px) {
     .divContainer{
         display: flex;

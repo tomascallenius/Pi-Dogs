@@ -8,7 +8,9 @@ const Footer = () => {
     <div className={style.divFooter}>
       <h2 className={style.me}>This was made by Tomas Callenius</h2>
       <div className={style.divInfo}>
-        <p>If you want to know me, go here →</p>
+        <p>
+          If you want to know me, go here <b>→</b>
+        </p>
         <a
           href="https://www.linkedin.com/in/tomas-callenius-9a9149219/"
           target="_blank"
@@ -30,7 +32,7 @@ const Footer = () => {
         >
           <img src={imgGmail} alt="Mail" className={style.icons} />
         </a>
-        <p> ←</p>
+        <p> <b>←</b></p>
       </div>
     </div>
   );

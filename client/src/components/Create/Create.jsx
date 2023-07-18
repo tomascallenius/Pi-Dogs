@@ -44,7 +44,7 @@ const Create = () => {
           temperaments: [...form.temperaments, event.target.value],
         });
       }
-    }else{alert("hijoputa")}
+    }else{alert("Select up to four temperaments")}
     };
     
   console.log(form);
@@ -172,6 +172,7 @@ const Create = () => {
                   </>
                 ))}
               </div>
+              {form.temperaments[0] ? <p className={style.pEliminate}>Click on a temp to eliminate</p> : <></>}
             </div>
             <div>
               <button

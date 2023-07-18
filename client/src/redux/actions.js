@@ -4,6 +4,10 @@ import {
   GET_DOG_BY_NAME,
   POST_DOG,
   GET_TEMPERAMENTS,
+  SORT_BY_NAME,
+  SORT_BY_WEIGHT,
+  FILTER_BY_TEMPERTAMENTS,
+  FILTER_BY_SOURCE,
   // CLEAN_DETAIL,
 } from "./actions-types";
 import axios from "axios";
@@ -70,9 +74,34 @@ export const getTemperaments = () => async (dispatch) => {
     return error;
   }
 };
+export const sortByName = (event) => {
+  return {
+    type: SORT_BY_NAME,
+    payload: event.target.value,
+  };
+};
+export const sortByWeight = (event) => {
+  return {
+    type: SORT_BY_WEIGHT,
+    payload: event.target.value,
+  };
+};
+export const filterByTemps = (event) => {
+  return {
+    type: FILTER_BY_TEMPERTAMENTS,
+    payload: event.target.value,
+  };
+};
+
+export const filterBySource = (event) => {
+  return {
+    type: FILTER_BY_SOURCE,
+    payload: event.target.value,
+  };
+};
 
 // export const cleanDetail = () => {
 
 //   return{ type: CLEAN_DETAIL, payload: [] };
-   
+
 // }

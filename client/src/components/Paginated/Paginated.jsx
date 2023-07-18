@@ -21,18 +21,18 @@ const Paginated = ({
       >
         <img src={imgPrev} alt="" className={style.img} />
       </button>
-      <button>
+      
         {pageNumbers?.map((pageNum) => (
           <button
             key={pageNum}
             onClick={() => currentPageSet(pageNum)}
-            className={style.buttonsPaginated}
+            className={style.buttonsNumber}
             // class={`style.number${pageNum == currentPage ? "Focus" : ""}`}
           >
             {pageNum}
           </button>
         ))}
-      </button>
+      
       <button
         onClick={() => currentPageSet(currentPage >= 1 && currentPage < pageNumbers.length ? currentPage + 1 : pageNumbers.length)}
         className={style.buttonsPaginated}

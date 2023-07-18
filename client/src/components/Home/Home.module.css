@@ -1,5 +1,6 @@
 .divAll{
   background-image: url("../../img/dogs_pattern.jpg");
+  display: flex;
   flex-direction: column;
 }
 

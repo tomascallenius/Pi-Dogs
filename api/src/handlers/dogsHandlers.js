@@ -38,19 +38,28 @@ const getByIdHandler = async (req, res) => {
 // };
 
 const postDogHandler = async (req, res) => {
-  const { name, heightMin, heightMax, weightMin, weightMax, life_span, temperaments } =
-    req.body;
+  const {
+    name,
+    heightMin,
+    heightMax,
+    weightMin,
+    weightMax,
+    life_span,
+    temperaments,
+    createdInDb,
+  } = req.body;
   console.log(req.body);
   try {
-    let dogCreated = await postDog(
-      {name,
+    let dogCreated = await postDog({
+      name,
       heightMin,
       heightMax,
       weightMin,
       weightMax,
       life_span,
       temperaments,
-  });
+      createdInDb,
+    });
     res.status(200).json("The dog has been created");
   } catch (error) {
     console.log(error.message);

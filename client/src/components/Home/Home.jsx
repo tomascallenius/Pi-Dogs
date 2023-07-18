@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import { getAllDogs } from "../../redux/actions";
 import style from "./Home.module.css";
 import Paginated from "../Paginated/Paginated";
+import Filter from "../Filter/Filter";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,15 +17,18 @@ const Home = () => {
 
   const currentDogs = dogs.slice(indexOfFirstPost, indexOfLastPost);
   const currentPageSet = (pageNumber) => setCurrentPage(pageNumber);
-  
+
   const totalPosts = dogs.length;
-  
+
   useEffect(() => {
     dispatch(getAllDogs());
   }, [dispatch]);
 
   return (
     <div className={style.divAll}>
+      <div>
+        <Filter />
+      </div>
       <div className={style.divCard}>
         {currentDogs?.map(
           ({ id, name, image, temperament, weightMin, weightMax }) => {

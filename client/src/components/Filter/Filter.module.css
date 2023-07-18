@@ -1,0 +1,16 @@
+.divAll{
+      color: #496675;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+}
+.divTitle{
+      background-color: aliceblue;
+}
+.title {
+      background-color: bisque;
+      text-align: center;
+
+
+}
