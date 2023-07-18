@@ -17,7 +17,6 @@ const getAllDogsHandler = async (req, res) => {
 const getByIdHandler = async (req, res) => {
   const id = req.params.id;
   console.log(id);
-  // let source = isNaN(id) ? "db" : "api";
 
   try {
     let dogById = await getById(id);
@@ -46,7 +45,7 @@ const postDogHandler = async (req, res) => {
     weightMax,
     life_span,
     temperaments,
-    createdInDb,
+    // createdInDb,
   } = req.body;
   console.log(req.body);
   try {
@@ -58,7 +57,7 @@ const postDogHandler = async (req, res) => {
       weightMax,
       life_span,
       temperaments,
-      createdInDb,
+      // createdInDb,
     });
     res.status(200).json("The dog has been created");
   } catch (error) {

@@ -12,8 +12,9 @@ const createDogObjDB = (res) => {
     heightMax,
     weightMin,
     weightMax,
-    lifeSpanMin,
-    lifeSpanMax,
+    life_span,
+    // lifeSpanMin,
+    // lifeSpanMax,
     Temperaments,
     createdInDb,
   } = res[0].dataValues;
@@ -29,8 +30,9 @@ const createDogObjDB = (res) => {
     heightMax,
     weightMin,
     weightMax,
-    lifeSpanMin,
-    lifeSpanMax,
+    life_span,
+    // lifeSpanMin,
+    // lifeSpanMax,
     temperament: dogTemperaments,
     createdInDb,
   });
@@ -51,7 +53,7 @@ const getAllDogsAPI = async () => {
         weightMax: dog.weight.metric.split("- ")[1],
         temperament: dog.temperament,
         image: dog.image.url,
-        life_Span: dog.life_span,
+        life_span: dog.life_span,   //cambie la S por la s. 
       };
     });
     return dogsAPI;
@@ -61,7 +63,7 @@ const getAllDogsAPI = async () => {
 };
 
 const getAllDogsDB = async () => {
-  const DogsDb = /*return*/ await Dog.findAll({
+  const DogsDb = await Dog.findAll({
     include: {
       model: Temperament,
       attributes: ["name"],
@@ -108,7 +110,7 @@ const postDog = async ({
   weightMax,
   life_span,
   temperaments,
-  createdInDb,
+  // createdInDb,
 }) => {
   console.log(name);
   const dogCreated = await Dog.create({
@@ -118,10 +120,9 @@ const postDog = async ({
     weightMin,
     weightMax,
     life_span,
-    createdInDb,
+    // createdInDb,
   });
   for (let i = 0; i < temperaments.length; i++) {
-    console.log(temperaments[i]);
     const temp = await Temperament.findAll({
       where: {
         name: temperaments[i],

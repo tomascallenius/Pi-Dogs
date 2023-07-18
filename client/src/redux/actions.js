@@ -74,18 +74,21 @@ export const getTemperaments = () => async (dispatch) => {
     return error;
   }
 };
+
 export const sortByName = (event) => {
   return {
     type: SORT_BY_NAME,
     payload: event.target.value,
   };
 };
+
 export const sortByWeight = (event) => {
   return {
     type: SORT_BY_WEIGHT,
     payload: event.target.value,
   };
 };
+
 export const filterByTemps = (event) => {
   return {
     type: FILTER_BY_TEMPERTAMENTS,

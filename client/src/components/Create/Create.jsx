@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { postDog, getTemperaments } from "../../redux/actions";
 import image from "../../img/perros-para-el-create-removebg-preview.png";
 import style from "./Create.module.css";
+import validateText from "../../utils/validation";
+
 const Create = () => {
   const dispatch = useDispatch();
   const tempsFromState = useSelector((state) => state.temperaments);
-  
+
   const [form, setForm] = useState({
     name: "",
     heightMin: "",
@@ -16,15 +18,14 @@ const Create = () => {
     life_span: "",
     temperaments: [],
   });
+  const [errors, setErrors] = useState({});
 
   // const [temperaments, setTemperaments] = useState([]);
-  
+
   useEffect(() => {
     // setTemperaments(tempsFromState);
     dispatch(getTemperaments());
   }, [dispatch]);
-  
-  // console.log(temperaments);
 
   const handleForm = (event) => {
     const property = event.target.name;
@@ -33,8 +34,12 @@ const Create = () => {
       ...form,
       [property]: value,
     });
+    setErrors(validateText({
+      ...form,
+      [property]: value
+    }));
   };
-  
+
   const handleTemperament = (event) => {
     let nextTemp = event.target.value;
     if (form.temperaments.length < 4) {
@@ -44,11 +49,13 @@ const Create = () => {
           temperaments: [...form.temperaments, event.target.value],
         });
       }
-    }else{alert("Select up to four temperaments")}
-    };
-    
+    } else {
+      alert("Select up to four temperaments");
+    }
+  };
+
   console.log(form);
-  
+
   const handleClick = (event) => {
     event.preventDefault();
     dispatch(postDog(form));
@@ -64,6 +71,14 @@ const Create = () => {
       weightMax: "",
       life_span: "",
       temperaments: [],
+    });
+  };
+
+  const handleButtonTemp = (event) => { 
+    event.preventDefault();
+    setForm({
+      ...form,
+      temperaments: form.temperaments.filter((temp)=> temp !== event.target.value),
     });
   };
 
@@ -90,6 +105,8 @@ const Create = () => {
                 value={form.name}
                 autoFocus
               />
+              <br />
+              <span className={style.error}>{errors.name}</span>
             </div>
             <div>
               <label htmlFor="" name="heightMin">
@@ -101,6 +118,8 @@ const Create = () => {
                 name="heightMin"
                 value={form.heightMin}
               />
+              <br />
+              <span className={style.error}>{errors.heightMin}</span>
             </div>
             <div>
               <label htmlFor="" name="heightMax">
@@ -114,6 +133,8 @@ const Create = () => {
                 max="5"
                 value={form.heightMax}
               />
+              <br />
+              <span className={style.error}>{errors.heightMax}</span>
             </div>
             <div>
               <label htmlFor="" name="weightMin">
@@ -125,6 +146,8 @@ const Create = () => {
                 name="weightMin"
                 value={form.weightMin}
               />
+              <br />
+              <span className={style.error}>{errors.weightMin}</span>
             </div>
             <div>
               <label htmlFor="" name="weightMax">
@@ -136,6 +159,8 @@ const Create = () => {
                 name="weightMax"
                 value={form.weightMax}
               />
+              <br />
+              <span className={style.error}>{errors.weightMax}</span>
             </div>
             <div>
               <label htmlFor="" name="life_span">
@@ -147,6 +172,8 @@ const Create = () => {
                 name="life_span"
                 value={form.life_span}
               />
+              <br />
+              <span className={style.error}>{errors.life_span}</span>
             </div>
             <div>
               <label htmlFor="" name="temperaments">
@@ -168,11 +195,15 @@ const Create = () => {
               <div className={style.currentTemps}>
                 {form.temperaments?.map((temp) => (
                   <>
-                    <button className={style.currentTempsButton}>{temp}</button>
+                    <button value={temp} className={style.currentTempsButton} onClick={handleButtonTemp}>{temp}</button>
                   </>
                 ))}
               </div>
-              {form.temperaments[0] ? <p className={style.pEliminate}>Click on a temp to eliminate</p> : <></>}
+              {form.temperaments[0] ? (
+                <p className={style.pEliminate}>Click on a temp to eliminate</p>
+              ) : (
+                <></>
+              )}
             </div>
             <div>
               <button
@@ -200,3 +231,16 @@ const Create = () => {
 export default Create;
 
 //onSubmit={(event) => handleSubmit(event)}
+
+// const notify = () => {
+//     toast.success("🐶 Raza de perro creada!", {
+//       position: "top-right",
+//       autoClose: 3000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "dark",
+//     });
+//   };

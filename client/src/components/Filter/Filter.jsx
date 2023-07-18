@@ -31,31 +31,48 @@ const Filter = () => {
 
   return (
     <div className={style.divAll}>
-      <h2>Filter temp</h2>
-      <select name="temps" id="1" onChange={handleTempSelect}>
-        {temperaments?.map((temp) => (
-          <option value={temp.name} key={temp.id}>
-            {temp.name}
-          </option>
-        ))}
-      </select>
-      <h2>order</h2>
-      <select name="order" id="2" onChange={handleOrderSelect}>
-        <option value="1">Name A-Z</option>
-        <option value="2">Name Z-A</option>
-        <option value="3">Weight +/-</option>
-        <option value="4">Weight -/+</option>
-      </select>
-      <h2>source</h2>
-      <select
-        name="source"
-        id="3"
-        onChange={handleSourceSelect}
-      >
-        <option value="ALL">All</option>
-        <option value="DB">DB</option>
-        <option value="API">API</option>
-      </select>
+      <div className={style.divContainer}>
+        <h2>Filter temp</h2>
+        <select
+          name="temps"
+          id="1"
+          onChange={handleTempSelect}
+          className={style.select}
+        >
+          {temperaments?.map((temp) => (
+            <option value={temp.name} key={temp.id}>
+              {temp.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className={style.divContainer}>
+        <h2>Order</h2>
+        <select
+          name="order"
+          id="2"
+          onChange={handleOrderSelect}
+          className={style.select}
+        >
+          <option value="1">Name A-Z</option>
+          <option value="2">Name Z-A</option>
+          <option value="3">Weight +/-</option>
+          <option value="4">Weight -/+</option>
+        </select>
+      </div>
+      <div className={style.divContainer}>
+        <h2>Source</h2>
+        <select
+          name="source"
+          id="3"
+          onChange={handleSourceSelect}
+          className={style.select}
+        >
+          <option value="ALL">All</option>
+          <option value="DB">DB</option>
+          <option value="API">API</option>
+        </select>
+      </div>
     </div>
   );
 };
