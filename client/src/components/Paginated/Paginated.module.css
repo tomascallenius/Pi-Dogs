@@ -12,7 +12,7 @@
 }
 .buttonsNumber{
       font-size: 20px;
-      background-color: rgb(199, 177, 152);;
+      background-color: rgb(199, 177, 152);
       border-style: none;
       border-radius: 50px;
 }
@@ -23,13 +23,37 @@
 }
 .img:hover {
      cursor: pointer;
-     transform: translateY(-3px);
+     transform: translateX(-3px);
 filter: drop-shadow(0px 5px 4px #000);
 }
 .img:active{
       filter: none;
       transform: none;
 }
-.numberFocus{
+.focusOn{
+      font-weight: bold;
+      color: white;
+      width: 28px;
+      margin: 3px;
+      padding: 5px;
+      font-size: 20px;
+      border-style: none;
+      border-radius: 10px;
       background-color: rgb(255, 128, 0);
+}
+.focusOff {
+      color: #496675;
+      width: 28px;
+      padding: 2px;
+      font-size: 20px;
+      border: 2px solid white;
+      border-radius: 12px;
+      background-color: #ebe0d1;
+      transition: .2s;
+}
+.focusOff:hover{
+      transform: translateY(-4px);
+}
+.focusOff:active {
+      transform: none;
 }

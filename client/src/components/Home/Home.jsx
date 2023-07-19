@@ -19,7 +19,7 @@ const Home = () => {
   const currentPageSet = (pageNumber) => setCurrentPage(pageNumber);
 
   const totalPosts = dogs.length;
-  console.log(currentPage);
+console.log(currentPage);
   useEffect(() => {
     dispatch(getAllDogs());
   }, [dispatch]);

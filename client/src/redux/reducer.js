@@ -47,7 +47,7 @@ const reducer = (state = initialState, action) => {
       };
     case SORT_BY_NAME:
       // if (state.dogs === "Dog not found :(") return { ...state }; //para q la app no se rompa al intentar ordenar el string dog not found
-      const ordered =
+      const orderedByName =
         action.payload === "1"
           ? state.dogs.sort((a, b) => {
               if (a.name > b.name) return 1;
@@ -61,7 +61,7 @@ const reducer = (state = initialState, action) => {
             });
       return {
         ...state,
-        dogs: ordered,
+        dogs: orderedByName,
       };
     case SORT_BY_WEIGHT:
       // if (state.dogs === "Dog not found :(") return { ...state }; //para q la app no se rompa al intentar ordenar el string dog not found

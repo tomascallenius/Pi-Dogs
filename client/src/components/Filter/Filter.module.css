@@ -21,9 +21,12 @@
 }
 .select{
       margin-bottom: 5%;
-      border-radius: 5px;
+      border-radius: 10px;
       border: solid 2px #c7b198;
-      transition: .5s;
+      transition: .3s;
+}
+.select:hover{
+      cursor: pointer;
 }
 
 

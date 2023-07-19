@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import style from "./Landing.module.css";
-import imgBanner from "../../img/tiraperrostipofooter-removebg-preview.png";
+import imgBanner from "../../img/tira-de-perros.png";
 
 const Landing = () => {
   return (

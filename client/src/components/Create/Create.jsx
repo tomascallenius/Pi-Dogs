@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postDog, getTemperaments } from "../../redux/actions";
-import image from "../../img/perros-para-el-create-removebg-preview.png";
+import image from "../../img/perros-del-create.png";
 import style from "./Create.module.css";
 import validateText from "../../utils/validation";
 
@@ -184,6 +184,7 @@ const Create = () => {
                 name="temperaments"
                 value={form.temperaments}
                 onChange={handleTemperament}
+                className={style.select}
               >
                 <option>Select up to four</option>
                 {tempsFromState?.map((temp) => (

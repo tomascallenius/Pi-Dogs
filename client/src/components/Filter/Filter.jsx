@@ -25,7 +25,8 @@ const Filter = () => {
   const handleTempSelect = (event) => {
     dispatch(filterByTemps(event));
   };
-  const handleSourceSelect = (event) => {
+  const handleSourceSelect = async(event) => {
+    await dispatch(getAllDogs());
     dispatch(filterBySource(event))
   };
 
@@ -56,8 +57,8 @@ const Filter = () => {
         >
           <option value="1">Name A-Z</option>
           <option value="2">Name Z-A</option>
-          <option value="3">Weight +/-</option>
-          <option value="4">Weight -/+</option>
+          <option value="3">Weight -/+</option>
+          <option value="4">Weight +/-</option>
         </select>
       </div>
       <div className={style.divContainer}>
