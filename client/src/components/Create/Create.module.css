@@ -26,7 +26,6 @@
     display: flex;
     align-items: center;
     margin: 3% 3% 3% 3%;
-    /* text-align: center; */
 }
 .divSubForm{
     width: 30%;
@@ -87,9 +86,7 @@
     50%{transform: rotate(0deg)}
     100%{transform: rotate(5deg)}
 }
-/* .currentTempsButton:active{
-    transform: scale(1.2);
-} */
+
 .pEliminate{
     font-size: 15px;
     color: rgb(0, 0, 0);
@@ -127,7 +124,6 @@
     .divContainer {
         display: flex;
         flex-direction: column;
-        /* justify-content: space-between; */
     }
     .divSubInfo {
         display: flex;

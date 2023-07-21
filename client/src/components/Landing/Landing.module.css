@@ -50,12 +50,7 @@
 
 .imgBanner{
     filter: drop-shadow(5px 5px 26px #c7b198);
-    /* animation: movimiento 3.5s linear infinite;  */
 }
-
-/* @keyframes movimiento{
- 
-} */
 
 .navLink{
     text-decoration: none;

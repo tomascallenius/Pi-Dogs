@@ -27,10 +27,12 @@
       max-width: 50px;
       transition: .2s;
 }
+
 .icons:hover {
       transform: translatey(-4px);
       filter: drop-shadow(0px 5px 4px #000);
 }
+
 .icons:active {
       transform: none;
       filter: none;

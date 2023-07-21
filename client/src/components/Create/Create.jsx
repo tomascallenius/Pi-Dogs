@@ -23,7 +23,6 @@ const Create = () => {
   // const [temperaments, setTemperaments] = useState([]);
 
   useEffect(() => {
-    // setTemperaments(tempsFromState);
     dispatch(getTemperaments());
   }, [dispatch]);
 
@@ -54,11 +53,14 @@ const Create = () => {
     }
   };
 
-  console.log(form);
-
   const handleClick = (event) => {
     event.preventDefault();
-    dispatch(postDog(form));
+    if (Object.entries(errors).length === 0 && form.temperaments.length > 0) {
+      dispatch(postDog(form))
+      alert("The dog has been created")
+    } else {
+      alert("You must complete all the inputs and select at least one temperament to create your dog")
+    }
   };
 
   const handleClickReset = (event) => {
@@ -177,7 +179,7 @@ const Create = () => {
             </div>
             <div>
               <label htmlFor="" name="temperaments">
-                Temperaments:
+                Temperaments: 
               </label>
               <select
                 id="temperaments"
@@ -186,7 +188,7 @@ const Create = () => {
                 onChange={handleTemperament}
                 className={style.select}
               >
-                <option>Select up to four</option>
+                <option>Select at least one</option>
                 {tempsFromState?.map((temp) => (
                   <option value={temp.name} key={temp.id}>
                     {temp.name}
@@ -230,18 +232,3 @@ const Create = () => {
 };
 
 export default Create;
-
-//onSubmit={(event) => handleSubmit(event)}
-
-// const notify = () => {
-//     toast.success("🐶 Raza de perro creada!", {
-//       position: "top-right",
-//       autoClose: 3000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//       theme: "dark",
-//     });
-//   };

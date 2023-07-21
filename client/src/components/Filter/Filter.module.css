@@ -3,9 +3,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* background-color: rgb(159, 132, 98); */
 }
+
 .divContainer{
+      box-shadow: 0px 29px 25px -22px rgba(0, 0, 0, 0.75) inset;
       width: 15%;
       background-color: rgb(159, 132, 98);
       display: flex;
@@ -15,18 +16,57 @@
       margin: 0px 8px 8px 8px;
       transition: .9s;
 }
+
 .divContainer:hover{
+      box-shadow: 0px -26px 25px -25px rgba(0, 0, 0, 0.75) inset;
       transform: translateY(4px);
       border-radius: 100px;
 }
+
+.divFilterBy{
+      width: 12%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(159, 132, 98);
+      margin: 0px 8px 8px 8px;
+      /* padding: 0px 5px 0px 5px; */
+      border: solid 3px #c7b198;
+      border-radius: 40px;
+}
+
 .select{
       margin-bottom: 5%;
       border-radius: 10px;
       border: solid 2px #c7b198;
       transition: .3s;
 }
+
 .select:hover{
       cursor: pointer;
 }
 
+.pEliminate{
+      color: white;
+      padding: 4px;
+      background-color: rgb(255, 101, 80);
+      border-radius: 20px;
+      position: absolute;
+      margin-top: 150px;
+      z-index: 2;
+}
 
+.divReset{
+      width: 12%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(159, 132, 98);
+      margin: 0px 8px 8px 8px;
+      border: solid 3px #c7b198;
+      border-radius: 40px;
+}
+
+.divReset:hover {
+      cursor: pointer;
+}

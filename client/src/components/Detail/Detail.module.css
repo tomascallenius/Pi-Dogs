@@ -1,24 +1,23 @@
 .divAll{
     width: 80%;
-    /* background-image: url("../../img/dogs_pattern.jpg"); */
     display: flex;
     flex-direction: column;
     margin: 10% 10% 10% 10%;
-    /* padding: 2em; */
     background-color: #d5c1b1;
     border-radius: 1em;
     color: #496675;
     text-align: center;
     transition: 1s;
 }
+
 .divAll:hover{
     box-shadow: 0px 25px 49px 10px rgba(143, 140, 115, 0.75);
-        -webkit-box-shadow: 0px 25px 49px 10px rgba(143, 140, 115, 0.75);
-        -moz-box-shadow: 0px 25px 49px 10px rgba(143, 140, 115, 0.75);
 }
+
 .title{
-    font-size: 4em;
+    font-size: 70px;
 }
+
 .subTitle{
     font-size: 1.5em;
 }

@@ -10,13 +10,12 @@ const getAllDogsHandler = async (req, res) => {
     let allDogs = await getAllDogs(name);
     res.status(200).json(allDogs);
   } catch (error) {
-    res.status(400).json({ message: "No se encontraron los perrunos" });
-  }
+    res.status(400).json({ message: "Dogs dont found" });
+  };
 };
 
 const getByIdHandler = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
 
   try {
     let dogById = await getById(id);
@@ -25,16 +24,6 @@ const getByIdHandler = async (req, res) => {
     res.status(400).json({ message: "No se encontró un perro con ese id" });
   }
 };
-
-// const getByNameHandler = async (req, res) => {
-//   const name = req.query.name;
-//   try {
-//     let dogByName = await getByName(name);
-//     res.status(200).json(dogByName);
-//   } catch (error) {
-//     res.status(400).json({ message: "No se encontró un perro con ese nombre" });
-//   }
-// };
 
 const postDogHandler = async (req, res) => {
   const {
@@ -45,9 +34,8 @@ const postDogHandler = async (req, res) => {
     weightMax,
     life_span,
     temperaments,
-    // createdInDb,
   } = req.body;
-  console.log(req.body);
+
   try {
     let dogCreated = await postDog({
       name,
@@ -57,9 +45,8 @@ const postDogHandler = async (req, res) => {
       weightMax,
       life_span,
       temperaments,
-      // createdInDb,
     });
-    res.status(200).json("The dog has been created");
+    res.status(200).json(dogCreated);
   } catch (error) {
     console.log(error.message);
     res.status(400).json({ message: "No se pudo crear el perro" });

@@ -8,7 +8,6 @@ import {
   SORT_BY_WEIGHT,
   FILTER_BY_TEMPERTAMENTS,
   FILTER_BY_SOURCE,
-  // CLEAN_DETAIL,
 } from "./actions-types";
 
 const initialState = {
@@ -24,27 +23,31 @@ const reducer = (state = initialState, action) => {
         ...state,
         dogs: action.payload,
       };
+    
     case GET_DOG_BY_ID:
       return {
         ...state,
         detail: action.payload,
       };
+    
     case GET_DOG_BY_NAME:
       return {
         ...state,
         dogs: action.payload,
       };
+    
     case POST_DOG:
       return {
         ...state,
-        dogs: action.payload,
-        //falta: falta?,
+        dogs: [...state.dogs, action.payload],
       };
+    
     case GET_TEMPERAMENTS:
       return {
         ...state,
         temperaments: action.payload,
       };
+      
     case SORT_BY_NAME:
       // if (state.dogs === "Dog not found :(") return { ...state }; //para q la app no se rompa al intentar ordenar el string dog not found
       const orderedByName =
@@ -63,6 +66,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         dogs: orderedByName,
       };
+    
     case SORT_BY_WEIGHT:
       // if (state.dogs === "Dog not found :(") return { ...state }; //para q la app no se rompa al intentar ordenar el string dog not found
       const orderByWeight =
@@ -81,6 +85,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         dogs: orderByWeight,
       };
+    
     case FILTER_BY_TEMPERTAMENTS:
       const temp = action.payload;
 
@@ -91,23 +96,20 @@ const reducer = (state = initialState, action) => {
         ...state,
         dogs: filteredDogs,
       };
+    
     case FILTER_BY_SOURCE:
+
       const orderBySource = action.payload === "DB" ?
         state.dogs.filter((dog) => {
           return dog.createdInDb;
         }) : state.dogs.filter((dog) => {
           return !dog.createdInDb;
         })
-      
         return {
           ...state,
           dogs: orderBySource,
-        };
-        // case CLEAN_DETAIL:
-        //   return {
-        //     ...state,
-        //     detail: action.payload,
-        //   }
+      };
+    
     default:
       return {
         ...state,

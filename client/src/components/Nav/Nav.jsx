@@ -1,9 +1,9 @@
-import { NavLink, useLocation } from "react-router-dom";
 import Search from "../Search/Search";
-import style from "./Nav.module.css";
-import logoHome from "../../img/icons/dog-house.png";
+import { NavLink, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAllDogs } from "../../redux/actions";
+import logoHome from "../../img/icons/dog-house.png";
+import style from "./Nav.module.css";
 
 const Nav = () => {
   const location = useLocation();
@@ -11,7 +11,8 @@ const Nav = () => {
 
   const handleHome = () => {
     dispatch(getAllDogs()); 
-   };
+  };
+  
   return (
     <div className={style.containerNav}>
       <NavLink to="/home" onClick={handleHome}>

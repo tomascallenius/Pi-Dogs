@@ -48,7 +48,6 @@ export const getDogByName = (name) => {
 };
 
 export const postDog = (form) => {
-  console.log(form);
   return async function (dispatch) {
     try {
       const response = await axios.post(
@@ -102,9 +101,3 @@ export const filterBySource = (event) => {
     payload: event.target.value,
   };
 };
-
-// export const cleanDetail = () => {
-
-//   return{ type: CLEAN_DETAIL, payload: [] };
-
-// }

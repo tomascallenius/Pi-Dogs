@@ -6,8 +6,6 @@
     background-color: #dfd3c3;
     border-bottom: 10px solid rgb(199, 177, 152);
     box-shadow: 0px 5px 15px 1px #8f8c73a3;
-    /* position:fixed; */
-    /* width: 100vw;  */
 }
 
 .homeImg {
@@ -18,12 +16,15 @@
     filter: drop-shadow(1px 5px 21px rgba(143, 140, 115, 0.800));
     transition: .3s;
 }
+
 .homeImg:hover{
     filter: drop-shadow(1px 5px 5px rgba(143, 140, 115, 1));
 }
+
 .homeImg:active {
     transform: scale(.8);
 }
+
 .buttonCreate {
     cursor: pointer;
     border-style: none;
@@ -37,9 +38,11 @@
     box-shadow: 0px 10px 10px -4px rgba(143, 140, 115, 0.639);
     transition: .3s;
 }
+
 .buttonCreate:hover {
     border-bottom: 4px solid rgb(255, 101, 80);
 }
+
 .buttonCreate:active {
     border-bottom: none;
 }

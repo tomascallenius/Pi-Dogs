@@ -16,12 +16,12 @@ const getAllTemperaments = async () => {
   });
   
   allTemperaments.sort();
-  // return allTemperaments;
+  
   await Promise.all(
     allTemperaments.map((temperament) => {
       Temperament.findOrCreate({
         where: { name: temperament },
-        defaults: { name: temperament },
+        // defaults: { name: temperament },
       });
     })
   );

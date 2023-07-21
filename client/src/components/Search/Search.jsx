@@ -16,7 +16,6 @@ const Search = () => {
   };
   const handleClick = (event) => {
     let { value } = event.target;
-    console.log(value);
     if (value) {
       dispatch(getDogByName(value));
       setInput("");
@@ -24,6 +23,7 @@ const Search = () => {
       dispatch(getAllDogs());
     }
   };
+
   return (
     <div className={style.containerSearch}>
       <input
@@ -37,7 +37,6 @@ const Search = () => {
       <button
         value={input}
         onClick={handleClick}
-        // onKeyDown={handleKeyPress}
         className={style.buttonSearch}
       >
         🔎

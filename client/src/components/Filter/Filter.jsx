@@ -1,5 +1,5 @@
 import style from "./Filter.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   sortByName,
@@ -13,27 +13,45 @@ import {
 const Filter = () => {
   const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
+  const [resetFilters, setResetFilters] = useState("");
+
   useEffect(() => {
     dispatch(getTemperaments());
   }, [dispatch]);
 
   const handleOrderSelect = (event) => {
+    setResetFilters(event.target.value);
     if (event.target.value === "1" || event.target.value === "2")
       dispatch(sortByName(event));
-    else dispatch(sortByWeight(event));
-  };
-  const handleTempSelect = (event) => {
-    dispatch(filterByTemps(event));
-  };
-  const handleSourceSelect = async(event) => {
-    await dispatch(getAllDogs());
-    dispatch(filterBySource(event))
+    else {
+      setResetFilters(event.target.value);
+      dispatch(sortByWeight(event));
+    }
   };
 
+  const handleTempSelect = (event) => {
+    setResetFilters(event.target.value);
+    dispatch(filterByTemps(event));
+  };
+
+  const handleSourceSelect = async(event) => {
+    await dispatch(getAllDogs());
+    dispatch(filterBySource(event));
+    setResetFilters(event.target.value);
+  };
+
+  const handleReset = () => {
+    dispatch(getAllDogs());
+    setResetFilters(null);
+    
+ }
   return (
     <div className={style.divAll}>
+      <div className={style.divFilterBy}>
+        <h1>Filter by:</h1>
+      </div>
       <div className={style.divContainer}>
-        <h2>Filter temp</h2>
+        <h2>Temps</h2>
         <select
           name="temps"
           id="1"
@@ -69,12 +87,20 @@ const Filter = () => {
           onChange={handleSourceSelect}
           className={style.select}
         >
-          <option value="ALL">All</option>
           <option value="DB">DB</option>
           <option value="API">API</option>
         </select>
       </div>
+      <div className={style.divReset}>
+        <h1 onClick={handleReset}>Reset</h1>
+      </div>
+      {resetFilters ? (
+        <p className={style.pEliminate}>Click on reset to eliminate Filter</p>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
+
 export default Filter;

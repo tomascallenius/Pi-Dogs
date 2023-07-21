@@ -10,16 +10,17 @@ const Home = () => {
   const dispatch = useDispatch();
   const { dogs } = useSelector((state) => state);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(8);
+  const [postPerPage] = useState(8);
 
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
-
+  
   const currentDogs = dogs.slice(indexOfFirstPost, indexOfLastPost);
+
   const currentPageSet = (pageNumber) => setCurrentPage(pageNumber);
 
   const totalPosts = dogs.length;
-console.log(currentPage);
+  
   useEffect(() => {
     dispatch(getAllDogs());
   }, [dispatch]);
@@ -30,6 +31,7 @@ console.log(currentPage);
         <Filter />
       </div>
       <div className={style.divCard}>
+
         {currentDogs?.map(
           ({ id, name, image, temperament, weightMin, weightMax }) => {
             return (

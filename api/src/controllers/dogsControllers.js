@@ -1,8 +1,9 @@
+const { Dog, Temperament } = require("../db");
 const axios = require("axios");
 // require("dotenv").config();
 // const { API_KEY } = process.env;
-const { Dog, Temperament } = require("../db");
 
+//se inicializa una funcion que sirve para purgar los datos inutiles que nos devuelve la base de datos. 
 const createDogObjDB = (res) => {
   let {
     id,
@@ -13,14 +14,14 @@ const createDogObjDB = (res) => {
     weightMin,
     weightMax,
     life_span,
-    // lifeSpanMin,
-    // lifeSpanMax,
     Temperaments,
     createdInDb,
   } = res[0].dataValues;
-
-  let dogTemperaments = Temperaments.map((data) => data.dataValues.name);
-  dogTemperaments = [...dogTemperaments].join();
+// console.log(res[0].dataValues.Temperaments)
+  let dogTemperaments = Temperaments.map((data) => data.dataValues.name); //como Temperaments es un array se purga la informacion aparte del resto. 
+  // console.log(dogTemperaments);
+  dogTemperaments = [...dogTemperaments].join(); //luego se pasan los temperamentos de tipo de dato array a string para poder trabajarlos mas limpiamente.
+  // console.log(dogTemperaments);
 
   return (dogObj = {
     id,
@@ -28,11 +29,9 @@ const createDogObjDB = (res) => {
     image,
     heightMin,
     heightMax,
-    weightMin,
+    weightMin,                      //y se retorna el objeto resultante.
     weightMax,
     life_span,
-    // lifeSpanMin,
-    // lifeSpanMax,
     temperament: dogTemperaments,
     createdInDb,
   });
@@ -53,7 +52,7 @@ const getAllDogsAPI = async () => {
         weightMax: dog.weight.metric.split("- ")[1],
         temperament: dog.temperament,
         image: dog.image.url,
-        life_span: dog.life_span,   //cambie la S por la s. 
+        life_span: dog.life_span,
       };
     });
     return dogsAPI;
@@ -72,7 +71,8 @@ const getAllDogsDB = async () => {
       },
     },
   }).then((response) => {
-    return response.map((res) => createDogObjDB([res]));
+    // console.log(response);
+    return response.map((res) => createDogObjDB([res])); //se maneja la promesa, se mapea cada dog y se le pasa la funcion createDogObjDB para limpiar los datos.
   });
   return DogsDb;
 };
@@ -101,7 +101,7 @@ const getById = async (id) => {
   return dogsById;
 };
 
-
+//recibimos las propiedades del body
 const postDog = async ({
   name,
   heightMin,
@@ -110,26 +110,31 @@ const postDog = async ({
   weightMax,
   life_span,
   temperaments,
-  // createdInDb,
+ 
 }) => {
-  console.log(name);
+//se pasan por parametro a create para que se cree un perro con estos ultimos
   const dogCreated = await Dog.create({
     name,
+    image: "https://img.freepik.com/free-vector/cute-dog-waving-hand-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium_138676-4955.jpg?w=2000",
     heightMin,
     heightMax,
     weightMin,
     weightMax,
     life_span,
-    // createdInDb,
+
   });
+//se itera sobre los temperamentos y los busca en la tabla Temperament para obtener el id de cada uno.
   for (let i = 0; i < temperaments.length; i++) {
     const temp = await Temperament.findAll({
       where: {
         name: temperaments[i],
       },
     });
-    dogCreated.addTemperament(temp);
+    console.log(temp)
+    dogCreated.addTemperament(temp); //al perro creado se lo relaciona con el id de cada temperamento.
   }
+    console.log(dogCreated);
+
 };
 
 module.exports = { getAllDogs, getById, postDog };

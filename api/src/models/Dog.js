@@ -6,14 +6,13 @@ module.exports = (sequelize) => {
     "Dog",
     {
       id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false,
-        unique: true,
       },
       image: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
       },
       name: {
