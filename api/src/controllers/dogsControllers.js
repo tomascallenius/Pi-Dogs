@@ -17,11 +17,8 @@ const createDogObjDB = (res) => {
     Temperaments,
     createdInDb,
   } = res[0].dataValues;
-// console.log(res[0].dataValues.Temperaments)
   let dogTemperaments = Temperaments.map((data) => data.dataValues.name); //como Temperaments es un array se purga la informacion aparte del resto. 
-  // console.log(dogTemperaments);
   dogTemperaments = [...dogTemperaments].join(); //luego se pasan los temperamentos de tipo de dato array a string para poder trabajarlos mas limpiamente.
-  // console.log(dogTemperaments);
 
   return (dogObj = {
     id,
@@ -40,7 +37,9 @@ const createDogObjDB = (res) => {
 const getAllDogsAPI = async () => {
   try {
     const allDogsAPI = (
-      await axios.get(`https://api.thedogapi.com/v1/breeds/?limit=104`)
+      await axios.get(
+        `https://api.thedogapi.com/v1/breeds/?limit=100` //&x-api-key=${API_KEY}
+      )
     ).data;
     const dogsAPI = await allDogsAPI.map((dog) => {
       return {
@@ -71,7 +70,6 @@ const getAllDogsDB = async () => {
       },
     },
   }).then((response) => {
-    // console.log(response);
     return response.map((res) => createDogObjDB([res])); //se maneja la promesa, se mapea cada dog y se le pasa la funcion createDogObjDB para limpiar los datos.
   });
   return DogsDb;
@@ -101,7 +99,7 @@ const getById = async (id) => {
   return dogsById;
 };
 
-//recibimos las propiedades del body
+//recibimos las propiedades del body.
 const postDog = async ({
   name,
   heightMin,
@@ -112,16 +110,15 @@ const postDog = async ({
   temperaments,
  
 }) => {
-//se pasan por parametro a create para que se cree un perro con estos ultimos
+//se pasan por parametro al .create para que se cree un perro con las propiedades.
   const dogCreated = await Dog.create({
     name,
-    image: "https://img.freepik.com/free-vector/cute-dog-waving-hand-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium_138676-4955.jpg?w=2000",
+    image:"https://img.freepik.com/foto-gratis/disparo-enfoque-selectivo-adorable-golden-retriever-al-aire-libre_181624-45215.jpg?w=996",
     heightMin,
     heightMax,
     weightMin,
     weightMax,
     life_span,
-
   });
 //se itera sobre los temperamentos y los busca en la tabla Temperament para obtener el id de cada uno.
   for (let i = 0; i < temperaments.length; i++) {
@@ -130,11 +127,8 @@ const postDog = async ({
         name: temperaments[i],
       },
     });
-    console.log(temp)
     dogCreated.addTemperament(temp); //al perro creado se lo relaciona con el id de cada temperamento.
   }
-    console.log(dogCreated);
-
 };
 
 module.exports = { getAllDogs, getById, postDog };

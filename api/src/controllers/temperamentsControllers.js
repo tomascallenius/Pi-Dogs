@@ -16,12 +16,10 @@ const getAllTemperaments = async () => {
   });
   
   allTemperaments.sort();
-  
   await Promise.all(
     allTemperaments.map((temperament) => {
       Temperament.findOrCreate({
         where: { name: temperament },
-        // defaults: { name: temperament },
       });
     })
   );
@@ -33,5 +31,3 @@ const getAllTemperaments = async () => {
 };
 
 module.exports = { getAllTemperaments };
-
-// temperaments = temperamentsAPI.forEach((temp) => temp.diet);

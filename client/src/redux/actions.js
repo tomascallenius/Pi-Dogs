@@ -56,7 +56,7 @@ export const postDog = (form) => {
       );
       dispatch({ type: POST_DOG, payload: response.data });
     } catch (error) {
-      alert("No se puso crear el perruno");
+      alert("The dog coulnd be created");
     }
   };
 };

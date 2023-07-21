@@ -7,7 +7,7 @@ const getTemperamentsHandler = async (req, res) => {
     const allTemperaments = await getAllTemperaments();
     res.status(200).json(allTemperaments);
   } catch (error) {
-    res.status(400).json({ message: "No se encontraron los temperamentos" });
+    res.status(400).json({ message: "Temperaments not found" });
   }
 };
 module.exports = { getTemperamentsHandler };

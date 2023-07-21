@@ -19,6 +19,12 @@ const Filter = () => {
     dispatch(getTemperaments());
   }, [dispatch]);
 
+  const handleTempSelect = async (event) => {
+    await dispatch(getAllDogs());
+    setResetFilters(event.target.value);
+    dispatch(filterByTemps(event));
+  };
+
   const handleOrderSelect = (event) => {
     setResetFilters(event.target.value);
     if (event.target.value === "1" || event.target.value === "2")
@@ -27,11 +33,6 @@ const Filter = () => {
       setResetFilters(event.target.value);
       dispatch(sortByWeight(event));
     }
-  };
-
-  const handleTempSelect = (event) => {
-    setResetFilters(event.target.value);
-    dispatch(filterByTemps(event));
   };
 
   const handleSourceSelect = async(event) => {
@@ -95,7 +96,7 @@ const Filter = () => {
         <h1 onClick={handleReset}>Reset</h1>
       </div>
       {resetFilters ? (
-        <p className={style.pEliminate}>Click on reset to eliminate Filter</p>
+        <p className={style.pEliminate}>One filter at a time, click on reset.</p>
       ) : (
         <></>
       )}

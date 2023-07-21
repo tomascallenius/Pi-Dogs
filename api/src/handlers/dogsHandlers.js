@@ -6,11 +6,12 @@ const {
 
 const getAllDogsHandler = async (req, res) => {
   const name = req.query.name;
+
   try {
     let allDogs = await getAllDogs(name);
     res.status(200).json(allDogs);
   } catch (error) {
-    res.status(400).json({ message: "Dogs dont found" });
+    res.status(400).json({ message: "Dogs not found" });
   };
 };
 
@@ -21,7 +22,7 @@ const getByIdHandler = async (req, res) => {
     let dogById = await getById(id);
     res.status(200).json(dogById);
   } catch (error) {
-    res.status(400).json({ message: "No se encontró un perro con ese id" });
+    res.status(400).json({ message: "Dog not found with that id" });
   }
 };
 
@@ -48,8 +49,7 @@ const postDogHandler = async (req, res) => {
     });
     res.status(200).json(dogCreated);
   } catch (error) {
-    console.log(error.message);
-    res.status(400).json({ message: "No se pudo crear el perro" });
+    res.status(400).json({ message: "Couldnt create the dog" });
   }
 };
 

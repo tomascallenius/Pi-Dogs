@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postDog, getTemperaments } from "../../redux/actions";
+import validateText from "../../utils/validation";
 import image from "../../img/perros-del-create.png";
 import style from "./Create.module.css";
-import validateText from "../../utils/validation";
 
 const Create = () => {
   const dispatch = useDispatch();
